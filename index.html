@@ -1,0 +1,1319 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Estudio navegable de prefactibilidad para abrir un jardín infantil de barrio en Bogotá: regulación, mercado, inmueble, personal, costos, flujo de caja y plan de apertura." />
+    <meta name="theme-color" content="#183e35" />
+    <meta property="og:title" content="Jardín de barrio · Bogotá 2026" />
+    <meta property="og:description" content="Estudio de prefactibilidad, modelo financiero y hoja de ruta para tomar una decisión informada." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_CO" />
+    <meta property="og:url" content="https://andresfccy.github.io/jardin-de-barrio-bogota/" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Jardín de barrio · Bogotá 2026" />
+    <meta name="twitter:description" content="Prefactibilidad, modelo financiero y hoja de ruta." />
+
+    <link rel="canonical" href="https://andresfccy.github.io/jardin-de-barrio-bogota/" />
+    <style>
+:root {
+  --forest: #183e35;
+  --forest-2: #245547;
+  --ink: #192621;
+  --muted: #5f6e67;
+  --linen: #f5f0e6;
+  --paper: #fffdf8;
+  --white: #ffffff;
+  --coral: #ed6b4d;
+  --gold: #e7b74b;
+  --mint: #9bc8aa;
+  --blue: #7aabb8;
+  --red: #b44335;
+  --line: #d8ddd8;
+  --shadow: 0 18px 55px rgb(24 62 53 / 0.11);
+  --radius: 22px;
+  --max: 1240px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 110px; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+}
+a { color: inherit; }
+button, input { font: inherit; }
+h1, h2, h3, p { margin-top: 0; }
+h1, h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 1.04;
+}
+h1 { max-width: 860px; font-size: clamp(3rem, 6vw, 6.4rem); }
+h2 { font-size: clamp(2.35rem, 4.5vw, 4.6rem); }
+h3 { font-size: 1.15rem; line-height: 1.25; }
+section { scroll-margin-top: 100px; }
+
+.skip-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 1000;
+  padding: 10px 14px;
+  transform: translateY(-150%);
+  background: var(--white);
+  border: 2px solid var(--forest);
+  border-radius: 8px;
+}
+.skip-link:focus { transform: none; }
+
+.notice {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  padding: 7px 24px;
+  background: var(--gold);
+  color: #342a12;
+  font-size: 0.76rem;
+  font-weight: 750;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+}
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  min-height: 74px;
+  padding: 10px max(24px, calc((100vw - var(--max)) / 2));
+  border-bottom: 1px solid rgb(24 62 53 / 0.1);
+  background: rgb(255 253 248 / 0.92);
+  backdrop-filter: blur(18px);
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+.brand-mark {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border-radius: 50% 50% 46% 54%;
+  background: var(--forest);
+  color: var(--paper);
+  font-family: Georgia, serif;
+  font-size: 1.3rem;
+}
+.brand strong, .brand small { display: block; }
+.brand strong { line-height: 1.05; }
+.brand small { margin-top: 3px; color: var(--muted); font-size: 0.7rem; }
+.main-nav { display: flex; justify-content: center; gap: 2px; }
+.main-nav a {
+  padding: 9px 10px;
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+.main-nav a:hover, .main-nav a.active { background: #e5eee8; color: var(--forest); }
+.menu-button { display: none; }
+.quiet-button, .menu-button {
+  padding: 9px 13px;
+  border: 1px solid #bfc8c1;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--forest);
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 750;
+}
+.quiet-button:hover, .menu-button:hover { background: #e5eee8; }
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(310px, 0.7fr);
+  gap: clamp(40px, 8vw, 110px);
+  align-items: end;
+  max-width: var(--max);
+  min-height: 720px;
+  margin: 0 auto;
+  padding: 90px 24px 74px;
+  background:
+    radial-gradient(circle at 92% 15%, rgb(231 183 75 / 0.22), transparent 20%),
+    radial-gradient(circle at 5% 85%, rgb(155 200 170 / 0.19), transparent 22%);
+}
+.eyebrow {
+  margin-bottom: 16px;
+  color: var(--forest-2);
+  font-size: 0.73rem;
+  font-weight: 850;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+.eyebrow.pale { color: #b9ddcb; }
+.hero-copy h1 { margin-bottom: 30px; }
+.hero-lead { max-width: 760px; color: #43534c; font-size: clamp(1.08rem, 1.7vw, 1.35rem); }
+.hero-lead strong { color: var(--forest); }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+.primary-button, .secondary-button {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  border: 1px solid var(--forest);
+  border-radius: 999px;
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+}
+.primary-button { background: var(--forest); color: white; }
+.primary-button:hover { background: #0d2e27; }
+.secondary-button { background: transparent; color: var(--forest); }
+.secondary-button:hover { background: #e5eee8; }
+.secondary-button.small { min-height: 38px; padding: 8px 14px; font-size: 0.78rem; }
+.decision-card {
+  padding: 28px;
+  border: 1px solid #ced8d1;
+  border-radius: var(--radius);
+  background: rgb(255 255 255 / 0.72);
+  box-shadow: var(--shadow);
+}
+.status, .tag {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  padding: 5px 9px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 850;
+}
+.status-amber, .tag.amber { background: #fff0c6; color: #705312; }
+.tag.red { background: #fae0dc; color: #8d3328; }
+.tag.green { background: #dcefe2; color: #245e3c; }
+.decision-card h2 { margin: 20px 0 16px; font-family: inherit; font-size: 1.7rem; font-weight: 750; letter-spacing: -0.025em; }
+.decision-card > p { color: var(--muted); }
+.decision-card dl { margin: 24px 0 0; }
+.decision-card dl div { display: flex; justify-content: space-between; gap: 16px; padding: 11px 0; border-top: 1px solid var(--line); }
+.decision-card dt { color: var(--muted); font-size: 0.82rem; }
+.decision-card dd { margin: 0; font-weight: 850; }
+.assumption-strip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 22px;
+  padding: 18px 24px;
+  background: var(--forest);
+  color: #e5f0e9;
+  font-size: 0.8rem;
+}
+.assumption-strip span::before { content: "•"; margin-right: 22px; color: var(--gold); }
+
+.section { padding: 110px max(24px, calc((100vw - var(--max)) / 2)); }
+.section-tint { background: var(--linen); }
+.section-forest { background: var(--forest); color: #f4f0e6; }
+.section-sources { background: #102f28; color: #f4f0e6; }
+.section-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(280px, 0.65fr);
+  gap: 40px;
+  align-items: end;
+  margin-bottom: 50px;
+}
+.section-heading h2 { max-width: 760px; margin-bottom: 0; }
+.section-heading > p { margin: 0; color: var(--muted); }
+.section-heading.light > p { color: #bed0c7; }
+.top-gap { margin-top: 34px; }
+.metric-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.metric-card {
+  position: relative;
+  min-height: 190px;
+  overflow: hidden;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--white);
+}
+.metric-card::before { position: absolute; inset: 0 auto 0 0; width: 7px; content: ""; background: var(--accent); }
+.metric-card span, .metric-card small { display: block; color: var(--muted); }
+.metric-card strong { display: block; margin: 20px 0 10px; font-family: Georgia, serif; font-size: 3.1rem; font-weight: 500; line-height: 1; }
+.metric-card small { font-size: 0.78rem; }
+.accent-coral { --accent: var(--coral); }
+.accent-gold { --accent: var(--gold); }
+.accent-mint { --accent: var(--mint); }
+.accent-blue { --accent: var(--blue); }
+.split-layout { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.panel {
+  padding: clamp(24px, 3vw, 38px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--white);
+}
+.panel h3 { margin-bottom: 18px; font-size: 1.35rem; }
+.panel-dark { border: none; background: var(--forest); color: #edf3ef; }
+.panel-dark p { color: #cbdad2; }
+.callout-inline { padding-left: 16px; border-left: 3px solid var(--gold); }
+.number-list { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+.number-list li { display: grid; grid-template-columns: 38px 1fr; gap: 12px; align-items: start; }
+.number-list li span { color: var(--coral); font-size: 0.75rem; font-weight: 900; }
+.number-list p { margin: 0; }
+.warning-box, .critical-box, .payroll-note, .financial-notes {
+  padding: 22px 24px;
+  border: 1px solid #e5cf9a;
+  border-radius: 16px;
+  background: #fff8df;
+  color: #4f421f;
+}
+.warning-box { display: flex; flex-wrap: wrap; gap: 7px 10px; }
+.warning-box span:not(:last-child)::after { content: ";"; }
+
+.table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 18px; background: var(--white); }
+table { width: 100%; border-collapse: collapse; font-size: 0.84rem; }
+th, td { min-width: 120px; padding: 16px 14px; border-bottom: 1px solid #e3e7e3; text-align: left; vertical-align: top; }
+th { background: #edf2ed; color: #3d5148; font-size: 0.7rem; letter-spacing: 0.05em; text-transform: uppercase; }
+tbody tr:last-child td { border-bottom: 0; }
+tbody tr:hover { background: #fbfaf5; }
+.score { color: var(--forest); font-weight: 900; }
+.fine-print { margin: 10px 4px 0; color: var(--muted); font-size: 0.72rem; }
+.price-ladder { display: grid; gap: 15px; }
+.price-ladder div { position: relative; padding: 12px 14px; overflow: hidden; border-radius: 10px; background: #eef2ef; }
+.price-ladder div::before { position: absolute; inset: 0 auto 0 0; width: var(--level); content: ""; background: rgb(155 200 170 / 0.44); }
+.price-ladder span, .price-ladder small { position: relative; display: block; }
+.price-ladder span { font-weight: 850; }
+.price-ladder small { color: var(--muted); }
+.compact-steps { display: grid; gap: 14px; padding-left: 20px; }
+.mini-gate { padding: 13px 15px; border-radius: 10px; background: var(--linen); }
+.disclosure { border: 1px solid #cdd6d0; border-radius: 16px; background: var(--white); }
+.disclosure summary { padding: 19px 22px; cursor: pointer; color: var(--forest); font-weight: 850; }
+.question-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 4px 24px; padding: 0 22px 22px; }
+.question-grid p { margin: 0; padding: 10px 0; border-top: 1px solid var(--line); font-size: 0.84rem; }
+
+.route-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.route-card { position: relative; padding: 26px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); }
+.route-card.recommended { border: 2px solid var(--forest); }
+.route-card.recommended::after { position: absolute; top: -12px; right: 20px; padding: 5px 9px; border-radius: 99px; content: "RECOMENDADA"; background: var(--forest); color: white; font-size: 0.62rem; font-weight: 900; letter-spacing: 0.06em; }
+.route-card > span { color: var(--muted); font-size: 0.7rem; font-weight: 850; text-transform: uppercase; }
+.route-card h3 { margin: 16px 0 12px; font-size: 1.35rem; }
+.route-card p { color: var(--muted); }
+.route-card strong { color: var(--forest); }
+.legal-table table { min-width: 1000px; }
+.critical-box { border-color: #e8ac9f; background: #fff1ee; color: #642c24; }
+
+.property-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.check-panel { padding: 28px; border: 1px solid rgb(255 255 255 / 0.2); border-radius: var(--radius); background: rgb(255 255 255 / 0.07); }
+.check-panel h3 { color: var(--gold); }
+.check-list { display: grid; gap: 10px; padding: 0; list-style: none; }
+.check-list li { position: relative; padding-left: 25px; color: #d7e3dd; }
+.check-list li::before { position: absolute; left: 0; content: "○"; color: var(--mint); font-weight: 900; }
+.lease-box { display: grid; grid-template-columns: 160px 1fr; gap: 24px 40px; align-items: start; padding: 34px; border-top: 1px solid rgb(255 255 255 / 0.25); border-bottom: 1px solid rgb(255 255 255 / 0.25); }
+.lease-box blockquote { margin: 0; color: #fff7e5; font-family: Georgia, serif; font-size: clamp(1.3rem, 2.2vw, 2rem); line-height: 1.35; }
+.lease-box > p:last-child { grid-column: 2; color: #afc7bc; font-size: 0.78rem; }
+
+.team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.role-card { padding: 24px; border: 1px solid var(--line); border-radius: 16px; background: var(--white); }
+.role-card > span { color: var(--coral); font-size: 0.72rem; font-weight: 900; }
+.role-card h3 { margin: 14px 0 10px; }
+.role-card p { color: var(--muted); font-size: 0.84rem; }
+.role-card strong { color: var(--forest); font-size: 0.82rem; }
+.payroll-note { border-color: #bed4c3; background: #edf5ef; color: #2d4b3e; }
+
+.calculator { display: grid; grid-template-columns: 1.1fr 1fr; overflow: hidden; border-radius: var(--radius); background: var(--forest); color: white; box-shadow: var(--shadow); }
+.calculator-inputs { padding: clamp(28px, 4vw, 46px); }
+.calculator-inputs h3 { margin-bottom: 28px; font-size: 1.4rem; }
+.calculator-inputs label { display: grid; grid-template-columns: 1fr auto; gap: 7px; margin: 18px 0; color: #d9e6df; font-size: 0.82rem; font-weight: 750; }
+.calculator-inputs label span { color: var(--gold); }
+.calculator-inputs input { grid-column: 1 / -1; width: 100%; accent-color: var(--gold); }
+.calculator-results { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: rgb(255 255 255 / 0.13); }
+.calculator-results > div { display: flex; min-height: 170px; flex-direction: column; justify-content: center; padding: 28px; background: #204c41; }
+.calculator-results span, .calculator-results small { color: #bbd0c6; }
+.calculator-results strong { margin: 8px 0; color: white; font-family: Georgia, serif; font-size: clamp(1.75rem, 3vw, 2.7rem); font-weight: 500; line-height: 1; }
+.calculator-results strong.negative { color: #ff9e88; }
+.formula { grid-column: 1 / -1; margin: 0; padding: 11px 20px; background: #0f3029; color: #bad0c6; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.72rem; text-align: center; }
+.panel-heading { display: flex; justify-content: space-between; gap: 18px; align-items: start; }
+.panel-heading > span { color: var(--forest); font-size: 1.35rem; font-weight: 900; white-space: nowrap; }
+.panel-heading p { margin-bottom: 0; color: var(--muted); }
+.cost-list { display: grid; }
+.cost-list > div { display: flex; justify-content: space-between; gap: 18px; padding: 10px 0; border-top: 1px solid var(--line); font-size: 0.84rem; }
+.cost-list .total { margin-top: 8px; color: var(--forest); font-weight: 850; }
+.highlight-row { background: #eff6f0; }
+.projection-panel { padding: 28px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); }
+.occupancy-chart { display: grid; grid-template-columns: repeat(24, 1fr); gap: 4px; align-items: end; height: 170px; margin: 28px 0; padding: 15px 12px 22px; border-bottom: 1px solid var(--line); }
+.chart-bar { position: relative; min-height: 4px; border-radius: 5px 5px 0 0; background: var(--mint); transition: height 220ms ease; }
+.chart-bar.break-even { background: var(--gold); }
+.chart-bar::after { position: absolute; bottom: -20px; left: 50%; content: attr(data-month); transform: translateX(-50%); color: var(--muted); font-size: 0.55rem; }
+.chart-bar:hover::before { position: absolute; bottom: calc(100% + 6px); left: 50%; z-index: 5; padding: 4px 7px; border-radius: 6px; content: attr(data-label); transform: translateX(-50%); background: var(--ink); color: white; font-size: 0.65rem; white-space: nowrap; }
+.compact-table { max-height: 480px; }
+.compact-table th { position: sticky; top: 0; z-index: 1; }
+.compact-table table { min-width: 850px; }
+.positive { color: #287046; font-weight: 800; }
+.negative-text { color: var(--red); font-weight: 800; }
+.year-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.year-grid article { padding: 20px; border-radius: 14px; background: var(--white); }
+.year-grid span, .year-grid small { display: block; color: var(--muted); }
+.year-grid strong { display: block; margin: 8px 0; color: var(--forest); font-size: 1.55rem; }
+.financial-notes { border-color: #c7d7c9; background: #edf5ef; color: #2d4b3e; }
+.financial-notes p:last-child { margin-bottom: 0; }
+
+.timeline { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.timeline::before { position: absolute; top: 20px; right: 0; left: 0; height: 2px; content: ""; background: #d0dad3; }
+.timeline article { position: relative; margin-top: 18px; padding: 28px 22px 22px; border: 1px solid var(--line); border-radius: 16px; background: var(--white); }
+.timeline article::before { position: absolute; top: -9px; left: 22px; width: 16px; height: 16px; border: 3px solid var(--paper); border-radius: 50%; content: ""; background: var(--coral); }
+.timeline span { color: var(--coral); font-size: 0.72rem; font-weight: 900; }
+.timeline h3 { margin: 14px 0 10px; }
+.timeline p { color: var(--muted); font-size: 0.83rem; }
+.timeline strong { color: var(--forest); font-size: 0.76rem; }
+.days-90 { display: grid; grid-template-columns: repeat(3, 1fr); overflow: hidden; border-radius: 16px; background: var(--forest); color: white; }
+.days-90 div { padding: 27px; border-right: 1px solid rgb(255 255 255 / 0.18); }
+.days-90 div:last-child { border: 0; }
+.days-90 span { color: var(--gold); font-weight: 900; }
+.days-90 p { margin: 10px 0 0; color: #caddd4; font-size: 0.84rem; }
+
+.service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.panel ul { padding-left: 18px; }
+.schedule { display: grid; gap: 7px; padding: 0 !important; list-style: none; }
+.schedule li { display: grid; grid-template-columns: 58px 1fr; gap: 10px; padding-bottom: 7px; border-bottom: 1px solid var(--line); }
+.schedule time { color: var(--coral); font-weight: 900; }
+.funnel { display: flex; align-items: stretch; margin: 24px 0; }
+.funnel div { display: grid; min-width: 0; flex: 1; place-items: center; padding: 15px 6px; clip-path: polygon(0 0, 92% 0, 100% 50%, 92% 100%, 0 100%, 8% 50%); background: var(--forest); color: white; }
+.funnel div:nth-child(2) { background: #2f6757; }
+.funnel div:nth-child(3) { background: #59917c; }
+.funnel div:nth-child(4) { background: var(--gold); color: #3e3218; }
+.funnel span { font-size: 0.62rem; }
+.protocol-grid { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); }
+.protocol-grid article { padding: 24px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.protocol-grid article:nth-child(3n) { border-right: 0; }
+.protocol-grid article:nth-last-child(-n+3) { border-bottom: 0; }
+.protocol-grid p { margin: 0; color: var(--muted); font-size: 0.84rem; }
+.kpi-strip { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px; padding: 20px 24px; border-radius: 14px; background: var(--forest); color: #dbe8e1; }
+.kpi-strip strong { color: var(--gold); }
+
+.risk-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.risk-card { padding: 22px; border-left: 6px solid var(--severity); border-radius: 12px; background: var(--white); box-shadow: 0 8px 24px rgb(24 62 53 / 0.07); }
+.risk-card > span { color: var(--severity); font-size: 0.68rem; font-weight: 900; text-transform: uppercase; }
+.risk-card h3 { margin: 12px 0; }
+.risk-card p { margin: 7px 0 0; color: var(--muted); font-size: 0.8rem; }
+.risk-card.critical { --severity: #a9332a; }
+.risk-card.high { --severity: #dc6d43; }
+.risk-card.medium { --severity: #c49c35; }
+.gates { display: grid; grid-template-columns: repeat(4, 1fr); overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); }
+.gates article { padding: 25px; border-right: 1px solid var(--line); background: var(--white); }
+.gates article:last-child { border: 0; }
+.gates span { color: var(--coral); font-size: 0.72rem; font-weight: 900; }
+.gates ul { padding-left: 17px; color: var(--muted); font-size: 0.82rem; }
+
+.source-columns { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+.source-columns h3 { color: var(--gold); }
+.source-columns a { display: block; padding: 9px 0; border-top: 1px solid rgb(255 255 255 / 0.16); color: #d5e4dc; font-size: 0.8rem; text-decoration-color: #6e9c89; text-underline-offset: 3px; }
+.source-columns a:hover { color: white; }
+.pending-box { padding: 28px; border: 1px solid rgb(255 255 255 / 0.2); border-radius: 16px; background: rgb(255 255 255 / 0.06); }
+.pending-box p { margin-bottom: 0; color: #c3d5cc; }
+
+footer { display: flex; justify-content: space-between; gap: 30px; align-items: center; padding: 42px max(24px, calc((100vw - var(--max)) / 2)); background: #0a241f; color: #d9e5df; }
+footer p { margin: 5px 0 0; color: #9db5aa; font-size: 0.8rem; }
+.footer-actions { display: flex; gap: 12px; align-items: center; }
+.footer-actions a { font-size: 0.82rem; }
+.footer-actions .quiet-button { border-color: #547168; color: #d9e5df; }
+
+@media (max-width: 1100px) {
+  .site-header { grid-template-columns: 1fr auto auto; gap: 10px; }
+  .main-nav {
+    position: absolute;
+    top: 100%;
+    right: 20px;
+    display: none;
+    width: 230px;
+    flex-direction: column;
+    padding: 12px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--paper);
+    box-shadow: var(--shadow);
+  }
+  .main-nav.open { display: flex; }
+  .menu-button { display: inline-flex; gap: 7px; }
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .decision-card { max-width: 680px; }
+  .metric-grid, .year-grid { grid-template-columns: repeat(2, 1fr); }
+  .timeline { grid-template-columns: repeat(2, 1fr); }
+  .gates { grid-template-columns: repeat(2, 1fr); }
+  .gates article:nth-child(2) { border-right: 0; }
+  .gates article:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+}
+
+@media (max-width: 800px) {
+  .notice { display: block; text-align: center; }
+  .notice span:last-child { display: none; }
+  .print-button { display: none; }
+  .site-header { grid-template-columns: 1fr auto; }
+  h1 { font-size: clamp(2.7rem, 14vw, 4.7rem); }
+  .hero { padding-top: 62px; }
+  .section { padding-top: 80px; padding-bottom: 80px; }
+  .section-heading { grid-template-columns: 1fr; gap: 18px; }
+  .section-heading > p { max-width: 650px; }
+  .split-layout, .route-cards, .property-grid, .service-grid, .source-columns { grid-template-columns: 1fr; }
+  .team-grid, .protocol-grid, .risk-grid { grid-template-columns: repeat(2, 1fr); }
+  .protocol-grid article, .protocol-grid article:nth-child(3n), .protocol-grid article:nth-last-child(-n+3) { border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .protocol-grid article:nth-child(2n) { border-right: 0; }
+  .protocol-grid article:nth-last-child(-n+2) { border-bottom: 0; }
+  .calculator { grid-template-columns: 1fr; }
+  .formula { grid-column: auto; }
+  .lease-box { grid-template-columns: 1fr; }
+  .lease-box > p:last-child { grid-column: auto; }
+  .days-90 { grid-template-columns: 1fr; }
+  .days-90 div { border-right: 0; border-bottom: 1px solid rgb(255 255 255 / 0.18); }
+}
+
+@media (max-width: 540px) {
+  .brand small { display: none; }
+  .brand-mark { width: 37px; height: 37px; }
+  .hero { padding-right: 18px; padding-left: 18px; }
+  .hero-actions { display: grid; }
+  .assumption-strip { justify-content: flex-start; }
+  .assumption-strip span::before { margin-right: 9px; }
+  .metric-grid, .team-grid, .risk-grid, .year-grid, .question-grid, .timeline, .gates { grid-template-columns: 1fr; }
+  .metric-card { min-height: 150px; }
+  .calculator-results { grid-template-columns: 1fr; }
+  .calculator-results > div { min-height: 130px; }
+  .protocol-grid { grid-template-columns: 1fr; }
+  .protocol-grid article, .protocol-grid article:nth-child(2n), .protocol-grid article:nth-last-child(-n+2) { border-right: 0; border-bottom: 1px solid var(--line); }
+  .protocol-grid article:last-child { border-bottom: 0; }
+  .gates article, .gates article:nth-child(2), .gates article:nth-child(-n+2) { border-right: 0; border-bottom: 1px solid var(--line); }
+  .gates article:last-child { border-bottom: 0; }
+  .occupancy-chart { gap: 2px; }
+  .chart-bar::after { display: none; }
+  footer { flex-direction: column; align-items: flex-start; }
+}
+
+@media print {
+  @page { margin: 16mm; }
+  body { background: white; color: black; font-size: 10pt; }
+  .notice, .site-header, .hero-actions, .print-button, #downloadCsv, footer { display: none !important; }
+  .hero, .section { max-width: none; min-height: 0; padding: 18mm 0; }
+  .section-forest, .section-sources, .panel-dark { background: white !important; color: black !important; }
+  .section-heading.light > p, .check-list li, .lease-box blockquote, .source-columns a, .pending-box p, .panel-dark p { color: #333 !important; }
+  .metric-grid, .team-grid, .risk-grid, .route-cards, .property-grid { break-inside: avoid; }
+  .panel, .metric-card, .role-card, .route-card, .risk-card, .check-panel { box-shadow: none; break-inside: avoid; }
+  .table-wrap { overflow: visible; }
+  table { font-size: 7pt; }
+  th, td { min-width: 0; padding: 5px; }
+  a { text-decoration: none; }
+}
+
+</style>
+    <title>Jardín de barrio · Estudio Bogotá 2026</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+    <div class="notice" role="note">
+      <span>Estudio preliminar · corte 3 de agosto de 2026</span>
+      <span>No reemplaza conceptos de las autoridades ni cotizaciones del inmueble.</span>
+    </div>
+
+    <header class="site-header">
+      <a class="brand" href="#inicio" aria-label="Volver al inicio">
+        <span class="brand-mark" aria-hidden="true">J</span>
+        <span>
+          <strong>Jardín de barrio</strong>
+          <small>Bogotá · prefactibilidad</small>
+        </span>
+      </a>
+      <button class="menu-button" id="menuButton" type="button" aria-expanded="false" aria-controls="mainNav">
+        <span aria-hidden="true">☰</span> Menú
+      </button>
+      <nav class="main-nav" id="mainNav" aria-label="Navegación principal">
+        <a href="#resumen">Decisión</a>
+        <a href="#mercado">Mercado</a>
+        <a href="#regulacion">Legal</a>
+        <a href="#inmueble">Inmueble</a>
+        <a href="#equipo">Equipo</a>
+        <a href="#finanzas">Finanzas</a>
+        <a href="#ruta">Ruta</a>
+        <a href="#riesgos">Riesgos</a>
+      </nav>
+      <button class="quiet-button print-button" type="button" data-print>Imprimir / PDF</button>
+    </header>
+
+    <main id="contenido">
+      <section class="hero" id="inicio">
+        <div class="hero-copy">
+          <p class="eyebrow">ESCENARIO BASE · 30 CUPOS · EDADES 2–5</p>
+          <h1>Un jardín pequeño puede funcionar. Pero no con cualquier casa ni a cualquier precio.</h1>
+          <p class="hero-lead">
+            La viabilidad depende de sostener una tarifa media neta cercana a <strong>$1,70 millones</strong>,
+            conseguir un inmueble apto por no más de <strong>$6,5 millones</strong> y llegar a
+            <strong>24 niños</strong> sin agotar la caja.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-button" href="#finanzas">Probar el modelo</a>
+            <a class="secondary-button" href="#ruta">Ver plan de apertura</a>
+          </div>
+        </div>
+        <aside class="decision-card" aria-label="Decisión preliminar">
+          <span class="status status-amber">Avanzar condicionado</span>
+          <h2>Primero validar, después arrendar</h2>
+          <p>El proyecto pasa a búsqueda de inmueble solo si demuestra demanda pagadora y reserva suficiente.</p>
+          <dl>
+            <div><dt>Capital prudente</dt><dd>$240–280 M</dd></div>
+            <div><dt>Apertura realista</dt><dd>24–32 semanas</dd></div>
+            <div><dt>Punto de equilibrio</dt><dd>24 niños</dd></div>
+            <div><dt>Preinscritos para abrir</dt><dd>15 familias</dd></div>
+          </dl>
+        </aside>
+      </section>
+
+      <section class="assumption-strip" aria-label="Supuestos centrales">
+        <strong>Supuesto de trabajo:</strong>
+        <span>Villa Luz / Engativá como zona de referencia</span>
+        <span>Atención integral no formal, 7:30–17:00</span>
+        <span>Alimentación tercerizada</span>
+        <span>Sin transporte en fase 1</span>
+      </section>
+
+      <section class="section" id="resumen">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">01 · DECISIÓN</p>
+            <h2>La tesis del negocio</h2>
+          </div>
+          <p>Una unidad pequeña necesita densidad de cupos, nómina ajustada a la edad atendida y disciplina para no convertir adecuaciones en costos hundidos.</p>
+        </div>
+
+        <div class="metric-grid">
+          <article class="metric-card accent-coral">
+            <span>Capacidad recomendada</span>
+            <strong>30</strong>
+            <small>20–25 cupos dejan muy poco margen.</small>
+          </article>
+          <article class="metric-card accent-gold">
+            <span>Ocupación de equilibrio</span>
+            <strong>80%</strong>
+            <small>24 de 30 niños en el escenario base.</small>
+          </article>
+          <article class="metric-card accent-mint">
+            <span>Inversión + caja</span>
+            <strong>$245 M</strong>
+            <small>Base; el rango prudente llega a $280 M.</small>
+          </article>
+          <article class="metric-card accent-blue">
+            <span>Recuperación estimada</span>
+            <strong>34–42</strong>
+            <small>Meses, si la rampa base se cumple.</small>
+          </article>
+        </div>
+
+        <div class="split-layout top-gap">
+          <article class="panel panel-dark">
+            <p class="eyebrow pale">MODELO RECOMENDADO</p>
+            <h3>Empezar por educación inicial, no por colegio formal</h3>
+            <p>
+              Fase 1: niños de 24 a 60 meses, dos grupos, atención integral bajo la ruta SDIS/SIRSS,
+              sin ofrecer transición formal ni expedir certificados académicos. Esto reduce complejidad,
+              pero no elimina los estándares técnicos, sanitarios, laborales y de protección infantil.
+            </p>
+            <p class="callout-inline">La ruta debe confirmarse por escrito antes de promocionar grados o firmar el inmueble.</p>
+          </article>
+          <article class="panel">
+            <h3>Cinco condiciones para invertir</h3>
+            <ol class="number-list">
+              <li><span>01</span><p><strong>Demanda:</strong> 40 entrevistas, 25 visitas calificadas y 15 reservas pagadas.</p></li>
+              <li><span>02</span><p><strong>Predio:</strong> uso permitido, riesgo aceptable, licencia compatible y evacuación viable.</p></li>
+              <li><span>03</span><p><strong>Economía:</strong> canon total ≤ $6,5 M y adecuaciones ≤ $65 M antes de contingencia.</p></li>
+              <li><span>04</span><p><strong>Caja:</strong> mínimo $95 M de capital de trabajo, separado de la obra.</p></li>
+              <li><span>05</span><p><strong>Operación:</strong> directora idónea y dos maestras identificadas antes de abrir.</p></li>
+            </ol>
+          </article>
+        </div>
+
+        <div class="warning-box top-gap">
+          <strong>Motivos para detenerse:</strong>
+          <span>el mercado no acepta una tarifa efectiva de al menos $1,55 M;</span>
+          <span>el predio requiere cambio de uso u obra estructural;</span>
+          <span>el canon supera $6,5 M;</span>
+          <span>la apertura depende de más de 30 cupos;</span>
+          <span>el capital disponible es inferior a $200 M.</span>
+        </div>
+      </section>
+
+      <section class="section section-tint" id="mercado">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">02 · MERCADO</p>
+            <h2>Tres zonas para validar en calle</h2>
+          </div>
+          <p>Las cifras de población son por localidad, no por radio de captación. Sirven para priorizar; la decisión exige contar oferta y familias dentro de 1–2 km.</p>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Zona de referencia</th><th>Niños 2–5 (2026)</th><th>Canon indicativo</th><th>Tarifa defendible</th><th>Lectura</th><th>Puntaje</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Villa Luz · Engativá</strong></td><td>23.587</td><td>$5,0–6,5 M</td><td>$1,35–1,75 M</td>
+                <td>Buen balance entre acceso, familias estrato 3–4 y casas amplias. Validar ruido aéreo y uso.</td>
+                <td><span class="score">78/100</span></td>
+              </tr>
+              <tr>
+                <td><strong>Castilla · Kennedy</strong></td><td>31.597</td><td>$4,0–5,8 M*</td><td>$1,05–1,45 M</td>
+                <td>Más volumen y menor canon; la tarifa presiona el punto de equilibrio.</td>
+                <td><span class="score">75/100</span></td>
+              </tr>
+              <tr>
+                <td><strong>Colina · Suba</strong></td><td>46.953</td><td>$4,0–7,5 M</td><td>$1,55–2,20 M</td>
+                <td>Mayor capacidad de pago, pero oferta privada y pública intensa.</td>
+                <td><span class="score">73/100</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="fine-print">*Rango de escritorio por validar con al menos cinco inmuebles comparables. Población DANE 2026, edades simples 2–5, suma de ambos sexos. No equivale a demanda pagadora.</p>
+
+        <div class="split-layout top-gap">
+          <article class="panel">
+            <h3>Escalera de precios observada</h3>
+            <div class="price-ladder" aria-label="Comparación de tarifas privadas 2026">
+              <div style="--level:24%"><span>$440–509 mil</span><small>Preescolar privado económico; mensualidad publicada</small></div>
+              <div style="--level:58%"><span>$1,39–1,57 M</span><small>Jardín Stanford; alimentación aparte</small></div>
+              <div style="--level:82%"><span>$1,73 M</span><small>Corazonistas, prejardín, sin alimentación</small></div>
+              <div style="--level:100%"><span>$2,11 M</span><small>Colegio Campestre San José; comedor aparte</small></div>
+            </div>
+            <p class="fine-print">Los comparables prueban amplitud de mercado, no el precio de Villa Luz. El estudio recomienda validar $1,45 M de servicio + $280 mil de alimentación.</p>
+          </article>
+          <article class="panel">
+            <h3>Prueba de demanda en 21 días</h3>
+            <ol class="compact-steps">
+              <li><strong>Días 1–5:</strong> mapa de todos los jardines SIRSS/SED, horarios, reseñas y recorrido peatonal.</li>
+              <li><strong>Días 4–12:</strong> 40 entrevistas a familias y 10 entrevistas a administradores de conjuntos.</li>
+              <li><strong>Días 8–16:</strong> cinco llamadas y tres visitas como cliente incógnito por zona.</li>
+              <li><strong>Días 13–21:</strong> página de interés con tres precios y depósito reembolsable.</li>
+            </ol>
+            <div class="mini-gate"><strong>Puerta:</strong> seguir con 15 depósitos y 25 familias calificadas; rediseñar con menos de 10.</div>
+          </article>
+        </div>
+
+        <details class="disclosure top-gap">
+          <summary>Encuesta sugerida a familias · 12 preguntas</summary>
+          <div class="question-grid">
+            <p>1. ¿Qué edad tiene el niño y en qué mes buscaría cupo?</p>
+            <p>2. ¿En qué barrio vive y cuánto tardaría en llegar?</p>
+            <p>3. ¿Qué horario necesita realmente?</p>
+            <p>4. ¿Usa hoy jardín, familiar o cuidador?</p>
+            <p>5. ¿Qué haría cambiar su solución actual?</p>
+            <p>6. Ordene: seguridad, cercanía, pedagogía, bilingüismo, alimentación y precio.</p>
+            <p>7. ¿Prefiere media jornada o jornada completa?</p>
+            <p>8. ¿Necesita almuerzo, refrigerios o transporte?</p>
+            <p>9. ¿Pagaría $1,35 M, $1,55 M o $1,75 M por el paquete descrito?</p>
+            <p>10. ¿Qué evidencia necesita antes de matricular?</p>
+            <p>11. ¿Quién toma la decisión y cuándo?</p>
+            <p>12. ¿Dejaría un depósito reembolsable para reservar cupo?</p>
+          </div>
+        </details>
+      </section>
+
+      <section class="section" id="regulacion">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">03 · REGULACIÓN</p>
+            <h2>Definir la ruta antes del nombre comercial</h2>
+          </div>
+          <p>En julio de 2026 se publicó un proyecto distrital sobre habilitación de educación inicial. Debe confirmarse si fue adoptado y qué régimen transitorio aplica.</p>
+        </div>
+
+        <div class="route-cards">
+          <article class="route-card recommended">
+            <span>Ruta A · recomendada fase 1</span>
+            <h3>Educación inicial integral</h3>
+            <p>Menores de seis años, sin grados formales ni certificados. Inscripción y vigilancia SDIS/SIRSS, proyecto pedagógico y estándares técnicos.</p>
+            <strong>CIIU de referencia: 8511</strong>
+          </article>
+          <article class="route-card">
+            <span>Ruta B · expansión</span>
+            <h3>Preescolar formal</h3>
+            <p>Prejardín, jardín o transición como grados de educación formal. Exige licencia SED, PEI, infraestructura y tarifas bajo régimen educativo.</p>
+            <strong>CIIU de referencia: 8512</strong>
+          </article>
+          <article class="route-card">
+            <span>Ruta C · doble control</span>
+            <h3>Oferta combinada</h3>
+            <p>Cuando se mezclan atención integral y grados formales. Puede involucrar coordinación de SDIS y SED; no debe asumirse sin concepto escrito.</p>
+            <strong>Mayor plazo y costo</strong>
+          </article>
+        </div>
+
+        <div class="table-wrap top-gap legal-table">
+          <table>
+            <thead>
+              <tr><th>Requisito</th><th>Aplica</th><th>Autoridad / evidencia</th><th>Momento</th><th>Costo modelo</th><th>Riesgo</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Definición de modalidad</strong></td><td><span class="tag red">Crítico</span></td><td>Concepto SDIS/SED y descripción exacta del servicio</td><td>Antes de publicidad</td><td>$1–3 M asesoría</td><td>Clausura o trámite equivocado</td></tr>
+              <tr><td>Asesoría técnica de educación inicial</td><td>Sí, Ruta A</td><td>SDIS · constancia vigente</td><td>Preoperación</td><td>Trámite oficial por confirmar</td><td>No completar inscripción</td></tr>
+              <tr><td>Proyecto pedagógico</td><td>Sí</td><td>Radicado SDIS; coherente con edades y horarios</td><td>Antes de inscripción</td><td>$2–5 M apoyo</td><td>Requerimientos</td></tr>
+              <tr><td>Inscripción / habilitación SIRSS</td><td>Sí, Ruta A</td><td>SDIS · verificar procedimiento vigente 2026</td><td>Antes de atender</td><td>Por confirmar</td><td>Operación no autorizada</td></tr>
+              <tr><td>Licencia de funcionamiento</td><td>Condicional</td><td>SED si ofrece educación formal</td><td>Antes de ofrecer grados</td><td>$4–12 M profesionales</td><td>Cierre y sanciones</td></tr>
+              <tr><td>SAS + establecimiento</td><td>Recomendado</td><td>CCB/VUE · estatutos, RUES, matrícula</td><td>Semanas 2–5</td><td>$1–3 M</td><td>Responsabilidad y contratos</td></tr>
+              <tr><td>RUT, NIT y facturación</td><td>Sí</td><td>DIAN · responsabilidades definidas por contador</td><td>Antes de cobrar</td><td>$0,4–1 M</td><td>Sanción tributaria</td></tr>
+              <tr><td>ICA y régimen tributario</td><td>Sí</td><td>Secretaría de Hacienda / DIAN</td><td>Con constitución</td><td>Provisión 1,1% ingresos*</td><td>Intereses y sanciones</td></tr>
+              <tr><td>Uso del suelo y licencias del predio</td><td><span class="tag red">Crítico</span></td><td>Planeación/Curaduría · concepto escrito y licencias</td><td>Antes de firmar</td><td>$0,5–3 M</td><td>Inmueble inutilizable</td></tr>
+              <tr><td>Amenaza y riesgo del predio</td><td><span class="tag red">Crítico</span></td><td>IDIGER/entidad competente · nivel bajo o medio/mitigado</td><td>Antes de firmar</td><td>$0–2 M</td><td>Negación y seguridad</td></tr>
+              <tr><td>Seguridad humana</td><td>Sí</td><td>Bomberos · evacuación, carga ocupacional y visita</td><td>Antes de abrir</td><td>$1–4 M + equipos</td><td>Cierre / accidente</td></tr>
+              <tr><td>Concepto sanitario</td><td>Sí</td><td>Secretaría de Salud · visita y plan de mejora</td><td>Antes o al inicio, validar</td><td>Visita oficial gratuita</td><td>Medida sanitaria</td></tr>
+              <tr><td>Alimentos y manipuladores</td><td>Si sirve alimentos</td><td>Salud · proveedor habilitado, BPM, cadena de frío</td><td>Antes de servir</td><td>$0,8–2 M</td><td>ETA / cierre</td></tr>
+              <tr><td>SG-SST y afiliaciones</td><td>Sí</td><td>MinTrabajo/ARL/UGPP · sistema, PILA y soportes</td><td>Antes de contratar</td><td>$0,6–1,2 M/mes</td><td>Multas / accidente</td></tr>
+              <tr><td>Inhabilidades sexuales</td><td><span class="tag red">Crítico</span></td><td>Policía/ICBF · consulta autorizada al vincular y periódica</td><td>Antes de contacto</td><td>Sin costo</td><td>Multa y daño grave</td></tr>
+              <tr><td>Protección de datos e imagen</td><td>Sí</td><td>SIC · política, autorizaciones separadas, seguridad</td><td>Antes de captar datos</td><td>$1–3 M</td><td>Sanción / reputación</td></tr>
+              <tr><td>Contrato, reglamento y cartera</td><td>Sí</td><td>Abogado · servicio, retiros, mora, autorizados</td><td>Antes de matrícula</td><td>$2–5 M</td><td>Disputas</td></tr>
+              <tr><td>Pólizas</td><td>Recomendado / contractual</td><td>Aseguradora · RC, accidentes, incendio, equipos</td><td>Antes de abrir</td><td>$0,3–0,7 M/mes</td><td>Pérdida no cubierta</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="fine-print">*La referencia del 1,1% corresponde a autorretención nacional asociada al CIIU en el Decreto 242 de 2024, no a una conclusión sobre ICA ni carga tributaria total. Un contador debe determinar régimen, exenciones y tratamiento aplicable.</p>
+
+        <div class="critical-box top-gap">
+          <strong>Antes del primer niño deben estar cerrados:</strong>
+          ruta e inscripción/licencia aplicable, autorización del inmueble, contratación y seguridad social, verificación de personal, plan de emergencias, protocolos de protección, condiciones sanitarias, contratos de familia y pólizas.
+        </div>
+      </section>
+
+      <section class="section section-forest" id="inmueble">
+        <div class="section-heading light">
+          <div>
+            <p class="eyebrow pale">04 · INMUEBLE</p>
+            <h2>La casa correcta vale más que una renta barata</h2>
+          </div>
+          <p>Meta orientativa: 220–280 m², primer piso dominante, dos salidas viables, patio utilizable y adecuaciones no estructurales.</p>
+        </div>
+
+        <div class="property-grid">
+          <article class="check-panel">
+            <h3>Filtro documental · antes de visitar dos veces</h3>
+            <ul class="check-list">
+              <li>Dirección exacta y consulta escrita de uso permitido.</li>
+              <li>Licencias urbanísticas y planos disponibles.</li>
+              <li>Certificado de tradición y facultad del arrendador.</li>
+              <li>Riesgo del predio bajo, medio o alto mitigado.</li>
+              <li>Reglamento de propiedad horizontal, si existe.</li>
+              <li>Servicios y deudas al día.</li>
+              <li>Autorización para obra, aviso y actividad educativa.</li>
+            </ul>
+          </article>
+          <article class="check-panel">
+            <h3>Filtro físico · visita con arquitecto</h3>
+            <ul class="check-list">
+              <li>Dos rutas de salida sin cuellos de botella.</li>
+              <li>Escaleras evitables para áreas de niños.</li>
+              <li>Ventilación e iluminación natural suficientes.</li>
+              <li>Baños infantiles adaptables y baño adulto separado.</li>
+              <li>Patio seguro, visible y sin contaminación intensa.</li>
+              <li>Redes eléctricas, gas, agua y estructura verificables.</li>
+              <li>Sin humedad, vidrio inseguro ni desniveles críticos.</li>
+            </ul>
+          </article>
+          <article class="check-panel">
+            <h3>Filtro económico · tope antes de enamorarse</h3>
+            <ul class="check-list">
+              <li>Canon + administración máximo: $6,5 M.</li>
+              <li>Gracia objetivo: 60–90 días.</li>
+              <li>Obra base máxima: $65 M antes de contingencia.</li>
+              <li>Contrato mínimo: 5 años con salida regulatoria.</li>
+              <li>Propietario asume estructura, cubierta y redes troncales.</li>
+              <li>Mejoras y restitución definidas por escrito.</li>
+              <li>Incremento anual y renovación predecibles.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="lease-box top-gap">
+          <p class="eyebrow pale">CLÁUSULA DE SUPERVIVENCIA</p>
+          <blockquote>
+            La eficacia del contrato queda condicionada a la verificación favorable del uso y la viabilidad
+            técnica y regulatoria para educación inicial. Si la autoridad niega la operación por una condición
+            preexistente del predio, el arrendatario puede terminar sin penalidad y recuperar depósitos.
+          </blockquote>
+          <p>Debe ser redactada y negociada por abogado; no usar este texto como cláusula final.</p>
+        </div>
+      </section>
+
+      <section class="section" id="equipo">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">05 · EQUIPO</p>
+            <h2>Dos grupos, redundancia mínima</h2>
+          </div>
+          <p>Los ratios de referencia SDIS 2017 son máximos: 15 niños por maestra entre 24–36 meses, 20 entre 37–48 y 25 entre 49–60. En grupos mixtos manda la edad menor.</p>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Escenario</th><th>Composición sugerida</th><th>Equipo educativo</th><th>Soporte</th><th>Lectura económica</th></tr></thead>
+            <tbody>
+              <tr><td><strong>15 niños</strong></td><td>6 de 2–3 / 9 de 3–5</td><td>2 maestras</td><td>Directora híbrida + 1 apoyo compartido</td><td><span class="tag red">No sostenible</span> salvo incubación subsidiada</td></tr>
+              <tr><td><strong>25 niños</strong></td><td>10 de 2–3 / 15 de 3–5</td><td>2 maestras + 1 auxiliar</td><td>Directora + servicios + externos</td><td><span class="tag amber">Muy estrecho</span> exige tarifa alta</td></tr>
+              <tr><td><strong>30 niños</strong></td><td>12 de 2–3 / 18 de 3–5</td><td>2 maestras + 1 auxiliar</td><td>Directora + servicios + externos</td><td><span class="tag green">Recomendado</span> mejor densidad</td></tr>
+              <tr><td><strong>35 niños</strong></td><td>12 de 2–3 / 23 de 3–5 mixtos</td><td>3 maestras + 1 auxiliar</td><td>Directora + servicios + externos</td><td>Salto de nómina; rediseñar grupos</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="team-grid top-gap">
+          <article class="role-card"><span>01</span><h3>Directora responsable</h3><p>Perfil profesional e idoneidad por confirmar con SDIS. Lidera familias, calidad, protección y administración.</p><strong>Costo empresa: $6,1 M/mes</strong></article>
+          <article class="role-card"><span>02</span><h3>Maestras</h3><p>Una por grupo. Planeación pedagógica, observación, comunicación y cuidado directo.</p><strong>2 × $4,3 M/mes</strong></article>
+          <article class="role-card"><span>03</span><h3>Auxiliar flotante</h3><p>Apoya rutinas, baños, comidas, aperturas y reemplazos cortos. No sustituye ratios docentes.</p><strong>$3,1 M/mes</strong></article>
+          <article class="role-card"><span>04</span><h3>Servicios generales</h3><p>Aseo y apoyo de alimentación tercerizada. Separar funciones y entrenar en inocuidad.</p><strong>$2,8 M/mes</strong></article>
+          <article class="role-card"><span>05</span><h3>Interdisciplinarios</h3><p>Psicología y nutrición/enfermería: referencia de 5 horas mensuales cada uno hasta 50 niños.</p><strong>$1,5 M/mes bolsa</strong></article>
+          <article class="role-card"><span>06</span><h3>Back office</h3><p>Contabilidad, SG-SST, legal y reemplazos. Tercerizar sin esconder relaciones laborales.</p><strong>$1,2 M/mes</strong></article>
+        </div>
+
+        <div class="payroll-note top-gap">
+          <strong>Supuesto de costo laboral:</strong>
+          se usa un factor conservador cercano a 1,45–1,52 sobre salario, más auxilio cuando aplica. Incluye prestaciones y aportes; el cálculo exacto depende de exenciones, clase de riesgo y estructura tributaria. El salario mínimo transitorio 2026 es $1.750.905 y el auxilio de transporte $249.095.
+        </div>
+      </section>
+
+      <section class="section section-tint" id="finanzas">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">06 · FINANZAS</p>
+            <h2>El modelo que decide el negocio</h2>
+          </div>
+          <p>Valores mensuales en millones de pesos. Cambia los supuestos: los resultados se recalculan en el navegador y no se guardan.</p>
+        </div>
+
+        <div class="calculator" aria-labelledby="calcTitle">
+          <div class="calculator-inputs">
+            <h3 id="calcTitle">Calculadora de equilibrio</h3>
+            <label>Capacidad total <span id="capacityValue">30</span><input id="capacity" type="range" min="20" max="40" step="1" value="30" /></label>
+            <label>Niños matriculados <span id="childrenValue">24</span><input id="children" type="range" min="0" max="30" step="1" value="24" /></label>
+            <label>Ingreso neto por niño <span id="priceValue">$1,70 M</span><input id="price" type="range" min="1" max="2.4" step="0.05" value="1.7" /></label>
+            <label>Costo variable por niño <span id="variableValue">$0,31 M</span><input id="variable" type="range" min="0.15" max="0.55" step="0.01" value="0.31" /></label>
+            <label>Costos fijos mensuales <span id="fixedValue">$32,90 M</span><input id="fixed" type="range" min="22" max="45" step="0.1" value="32.9" /></label>
+          </div>
+          <div class="calculator-results" aria-live="polite">
+            <div><span>Punto de equilibrio</span><strong id="breakEvenResult">24 niños</strong><small id="breakEvenPercent">80% de ocupación</small></div>
+            <div><span>Ingresos del mes</span><strong id="revenueResult">$40,80 M</strong><small>Antes de costos</small></div>
+            <div><span>EBITDA estimado</span><strong id="ebitdaResult">$0,46 M</strong><small id="ebitdaState">Mes apenas positivo</small></div>
+            <div><span>Canon máximo objetivo</span><strong id="rentResult">$6,66 M</strong><small>Para no superar el equilibrio actual</small></div>
+          </div>
+          <p class="formula">Punto de equilibrio = costos fijos ÷ (ingreso neto por niño − costo variable por niño)</p>
+        </div>
+
+        <div class="split-layout top-gap">
+          <article class="panel">
+            <div class="panel-heading"><h3>Inversión inicial · escenario base</h3><span>$150,6 M</span></div>
+            <div class="cost-list">
+              <div><span>Trámites y profesionales</span><strong>$6,0 M</strong></div>
+              <div><span>Depósito y arriendo preoperativo</span><strong>$18,6 M</strong></div>
+              <div><span>Adecuaciones civiles y baños</span><strong>$52,0 M</strong></div>
+              <div><span>Mobiliario y material pedagógico</span><strong>$22,0 M</strong></div>
+              <div><span>Cocina / recepción de alimentos</span><strong>$8,0 M</strong></div>
+              <div><span>Seguridad, tecnología y primeros auxilios</span><strong>$8,0 M</strong></div>
+              <div><span>Inventario, marca y lanzamiento</span><strong>$8,0 M</strong></div>
+              <div><span>Nómina y capacitación preapertura</span><strong>$9,0 M</strong></div>
+              <div><span>Contingencia</span><strong>$18,0 M</strong></div>
+              <div class="total"><span>Capital de trabajo adicional</span><strong>$95,0 M</strong></div>
+            </div>
+          </article>
+          <article class="panel">
+            <div class="panel-heading"><h3>Costo fijo mensual · escenario base</h3><span>$32,9 M</span></div>
+            <div class="cost-list">
+              <div><span>Nómina educativa y servicios</span><strong>$20,6 M</strong></div>
+              <div><span>Profesionales y back office</span><strong>$2,7 M</strong></div>
+              <div><span>Arriendo + administración</span><strong>$6,2 M</strong></div>
+              <div><span>Servicios públicos e internet</span><strong>$1,2 M</strong></div>
+              <div><span>Seguros, software y banca</span><strong>$0,8 M</strong></div>
+              <div><span>Marketing</span><strong>$0,6 M</strong></div>
+              <div><span>Mantenimiento y reserva</span><strong>$0,8 M</strong></div>
+              <div class="total"><span>Variable por niño</span><strong>$0,31 M</strong></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="table-wrap top-gap">
+          <table>
+            <thead><tr><th>Escenario</th><th>Ingreso neto / niño</th><th>Variable / niño</th><th>Fijos</th><th>Equilibrio</th><th>EBITDA a 30</th><th>Capital prudente</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Conservador</strong></td><td>$1,55 M</td><td>$0,33 M</td><td>$34,5 M</td><td>29 niños</td><td>$2,1 M</td><td>$280–310 M</td></tr>
+              <tr class="highlight-row"><td><strong>Base</strong></td><td>$1,70 M</td><td>$0,31 M</td><td>$32,9 M</td><td>24 niños</td><td>$8,8 M</td><td>$240–280 M</td></tr>
+              <tr><td><strong>Optimista</strong></td><td>$1,85 M</td><td>$0,29 M</td><td>$31,5 M</td><td>21 niños</td><td>$15,3 M</td><td>$200–230 M</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="projection-panel top-gap">
+          <div class="panel-heading">
+            <div><h3>Rampa base · 24 meses</h3><p>La caja operativa toca un déficit acumulado máximo cercano a $43,6 M en el mes 5.</p></div>
+            <button class="secondary-button small" id="downloadCsv" type="button">Descargar CSV</button>
+          </div>
+          <div class="occupancy-chart" id="occupancyChart" aria-label="Ocupación proyectada por mes"></div>
+          <div class="table-wrap compact-table">
+            <table>
+              <thead><tr><th>Mes</th><th>Niños</th><th>Ocupación</th><th>Ingresos</th><th>Variables</th><th>Fijos</th><th>EBITDA</th><th>Acumulado operativo</th></tr></thead>
+              <tbody id="projectionBody"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="year-grid top-gap">
+          <article><span>Año 1</span><strong>−$16,7 M</strong><small>EBITDA; promedio 22,7 niños</small></article>
+          <article><span>Año 2</span><strong>+$79,2 M</strong><small>EBITDA; promedio 28,4 niños</small></article>
+          <article><span>Año 3</span><strong>≈ $119 M</strong><small>30 niños; precios +8%, costos +7%</small></article>
+          <article><span>Payback productivo</span><strong>34–42 meses</strong><small>Sensible a ocupación y sobrecostos</small></article>
+        </div>
+
+        <div class="financial-notes top-gap">
+          <h3>Cómo leer el número de $1,70 M</h3>
+          <p>No es necesariamente la pensión publicada. Puede componerse de servicio mensual de $1,45 M, alimentación de $280 mil y matrícula anual cercana a una mensualidad. Después de descuentos, mora y meses no cobrados, el ingreso neto promedio debe conservarse alrededor de $1,70 M por niño-mes atendido.</p>
+          <p><strong>Conclusión:</strong> a $1,20 M netos el proyecto de 30 cupos no cubre una estructura formal completa. Habría que reducir alcance, conseguir inmueble subsidiado, aumentar capacidad o cambiar de segmento.</p>
+        </div>
+      </section>
+
+      <section class="section" id="ruta">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">07 · IMPLEMENTACIÓN</p>
+            <h2>Una apertura de 24–32 semanas</h2>
+          </div>
+          <p>El cronograma incluye holgura regulatoria. No asume que inscripción, obra y licencia pueden resolverse en paralelo.</p>
+        </div>
+
+        <div class="timeline" aria-label="Cronograma de implementación">
+          <article><span>Sem. 1–4</span><h3>F0 · Validar demanda</h3><p>Competencia, entrevistas, precios, depósitos y definición de modalidad.</p><strong>Puerta: 10 depósitos iniciales</strong></article>
+          <article><span>Sem. 2–6</span><h3>F1 · Diseñar el negocio</h3><p>SAS, modelo de servicio, presupuesto, proyecto pedagógico y acercamiento SDIS/SED.</p><strong>Puerta: ruta por escrito</strong></article>
+          <article><span>Sem. 4–10</span><h3>F2 · Buscar predio</h3><p>Terna de inmuebles, uso, riesgo, licencias, arquitecto, Bomberos y negociación condicionada.</p><strong>Puerta: predio viable</strong></article>
+          <article><span>Sem. 8–16</span><h3>F3 · Tramitar y diseñar</h3><p>Radicaciones, concepto sanitario, planos, presupuesto cerrado y contratación de obra.</p><strong>Puerta: costo ≤ $65 M</strong></article>
+          <article><span>Sem. 14–21</span><h3>F4 · Adecuar</h3><p>Obra, baños, seguridad infantil, cocina, señalización, evacuación y dotación.</p><strong>Puerta: inspección interna</strong></article>
+          <article><span>Sem. 17–23</span><h3>F5 · Preparar operación</h3><p>Selección, verificaciones, SG-SST, protocolos, simulacro, proveedores y contratos.</p><strong>Puerta: equipo completo</strong></article>
+          <article><span>Sem. 12–24</span><h3>F6 · Preventa</h3><p>Casa abierta, alianzas, entrevistas de admisión y cobro de reservas.</p><strong>Puerta: 15 matrículas</strong></article>
+          <article><span>Sem. 24+</span><h3>F7–8 · Abrir y estabilizar</h3><p>Ingreso gradual por cohortes, revisión diaria, caja semanal y auditoría al mes 3.</p><strong>Puerta: 24 niños al mes 6</strong></article>
+        </div>
+
+        <div class="days-90 top-gap">
+          <div><span>0–30 días</span><p>Confirmar ruta, entrevistar 40 familias, mapear oferta, construir lista de 20 inmuebles y abrir lista de interés.</p></div>
+          <div><span>31–60 días</span><p>Lograr depósitos, constituir SAS, seleccionar terna, obtener conceptos preliminares y cerrar presupuesto financiero.</p></div>
+          <div><span>61–90 días</span><p>Escoger predio solo si pasa la puerta, negociar condiciones, radicar documentos y contratar diseños; no iniciar obra sin presupuesto.</p></div>
+        </div>
+      </section>
+
+      <section class="section section-tint" id="operacion">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">08 · OPERACIÓN Y VENTAS</p>
+            <h2>Un servicio simple, protector y repetible</h2>
+          </div>
+          <p>La fase 1 evita transporte propio, lactantes, jornada nocturna, cocina de producción y grados formales.</p>
+        </div>
+
+        <div class="service-grid">
+          <article class="panel"><h3>Propuesta de valor</h3><p>Jardín cercano de grupos pequeños, comunicación clara y cuidado visible; juego, arte, literatura y exploración como ejes.</p><ul><li>Horario 7:30–17:00</li><li>Dos grupos por etapa</li><li>Alimentación tercerizada trazable</li><li>Ingreso gradual y acompañamiento familiar</li></ul></article>
+          <article class="panel"><h3>Rutina de referencia</h3><ul class="schedule"><li><time>07:30</time>Acogida y verificación</li><li><time>08:30</time>Desayuno / refrigerio</li><li><time>09:15</time>Experiencias por grupo</li><li><time>11:30</time>Almuerzo y cuidado</li><li><time>12:30</time>Descanso flexible</li><li><time>14:00</time>Arte, movimiento y patio</li><li><time>16:00</time>Refrigerio y salida segura</li></ul></article>
+          <article class="panel"><h3>Embudo comercial mensual</h3><div class="funnel"><div><strong>120</strong><span>contactos</span></div><div><strong>45</strong><span>conversaciones</span></div><div><strong>25</strong><span>visitas</span></div><div><strong>8–10</strong><span>reservas</span></div></div><p>Meta de CAC de apertura: ≤ $350 mil por familia matriculada.</p></article>
+        </div>
+
+        <div class="protocol-grid top-gap">
+          <article><h3>Entrega segura</h3><p>Autorizados con documento, cambios verificados por doble canal y registro de hora/persona.</p></article>
+          <article><h3>Salud y medicamentos</h3><p>Ficha de salud, alergias visibles con privacidad, autorización escrita y cadena de custodia.</p></article>
+          <article><h3>Protección infantil</h3><p>Código de conducta, cero espacios ciegos, prohibición de teléfonos personales y ruta de denuncia.</p></article>
+          <article><h3>Incidentes</h3><p>Atención inmediata, registro objetivo, aviso a familia, escalamiento y análisis de causa.</p></article>
+          <article><h3>Datos e imágenes</h3><p>Autorizaciones separadas; no condicionar matrícula a marketing; acceso mínimo y retención definida.</p></article>
+          <article><h3>Continuidad</h3><p>Lista de reemplazos verificados, proveedores alternos, respaldo documental y fondo de emergencia.</p></article>
+        </div>
+
+        <div class="kpi-strip top-gap">
+          <span><strong>≥80%</strong> ocupación</span><span><strong>&lt;4%</strong> mora</span><span><strong>&lt;3%</strong> retiro mensual</span><span><strong>≥70</strong> NPS familiar</span><span><strong>100%</strong> verificaciones</span><span><strong>0</strong> incidentes graves prevenibles</span>
+        </div>
+      </section>
+
+      <section class="section" id="riesgos">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">09 · RIESGOS Y PUERTAS</p>
+            <h2>Lo que puede matar el proyecto</h2>
+          </div>
+          <p>Los riesgos de protección infantil dominan cualquier rentabilidad. Los financieros vienen después.</p>
+        </div>
+
+        <div class="risk-grid">
+          <article class="risk-card critical"><span>Crítico</span><h3>Predio no habilitable</h3><p><strong>Alerta:</strong> concepto verbal, planos ausentes o obra estructural.</p><p><strong>Control:</strong> condición suspensiva y revisión de arquitecto/abogado antes de pagar.</p></article>
+          <article class="risk-card critical"><span>Crítico</span><h3>Vulneración de un niño</h3><p><strong>Alerta:</strong> espacios ciegos, personal sin verificar, cultura de silencio.</p><p><strong>Control:</strong> selección, supervisión, código, formación y ruta inmediata.</p></article>
+          <article class="risk-card high"><span>Alto</span><h3>Matrícula insuficiente</h3><p><strong>Alerta:</strong> menos de 10 depósitos al día 45.</p><p><strong>Control:</strong> no firmar, cambiar zona/precio o aplazar.</p></article>
+          <article class="risk-card high"><span>Alto</span><h3>Sobrecosto de obra</h3><p><strong>Alerta:</strong> cotizaciones sin cantidades, humedad o redes antiguas.</p><p><strong>Control:</strong> presupuesto por capítulos, 20% contingencia y precio máximo.</p></article>
+          <article class="risk-card high"><span>Alto</span><h3>Falta de liquidez</h3><p><strong>Alerta:</strong> caja proyectada menor a tres nóminas.</p><p><strong>Control:</strong> separar $95 M y tablero semanal de cobranza.</p></article>
+          <article class="risk-card high"><span>Alto</span><h3>Incidente sanitario</h3><p><strong>Alerta:</strong> temperaturas sin registro o proveedor informal.</p><p><strong>Control:</strong> homologación, cadena de frío y simulacro de retiro.</p></article>
+          <article class="risk-card medium"><span>Medio</span><h3>Rotación del equipo</h3><p><strong>Alerta:</strong> horas extra, clima bajo y ausencias.</p><p><strong>Control:</strong> salarios de mercado, acompañamiento y suplentes verificados.</p></article>
+          <article class="risk-card medium"><span>Medio</span><h3>Quejas de vecinos</h3><p><strong>Alerta:</strong> congestión de ingreso, ruido y parqueo.</p><p><strong>Control:</strong> horarios escalonados, plan de movilidad y acuerdo vecinal.</p></article>
+          <article class="risk-card medium"><span>Medio</span><h3>Datos e imagen</h3><p><strong>Alerta:</strong> WhatsApp personal, fotos sin control o CCTV abierto.</p><p><strong>Control:</strong> política, permisos separados, accesos y borrado seguro.</p></article>
+        </div>
+
+        <div class="gates top-gap">
+          <article><span>Puerta 1</span><h3>Antes de arrendar</h3><ul><li>15 depósitos / reservas</li><li>Uso y riesgo viables</li><li>Canon ≤ $6,5 M</li><li>Capital ≥ $240 M</li></ul></article>
+          <article><span>Puerta 2</span><h3>Antes de adecuar</h3><ul><li>Ruta regulatoria escrita</li><li>Contrato condicionado firmado</li><li>Presupuesto ≤ $65 M + 20%</li><li>Diseño de evacuación aprobado</li></ul></article>
+          <article><span>Puerta 3</span><h3>Antes de abrir</h3><ul><li>Trámites esenciales cerrados</li><li>Equipo y suplentes verificados</li><li>Simulacro y protocolos probados</li><li>15 familias con contrato</li></ul></article>
+          <article><span>Puerta 4</span><h3>Mes 6</h3><ul><li>≥24 niños</li><li>Mora &lt;4%</li><li>Caja ≥3 nóminas</li><li>Sin brechas críticas</li></ul></article>
+        </div>
+      </section>
+
+      <section class="section section-sources" id="fuentes">
+        <div class="section-heading light">
+          <div>
+            <p class="eyebrow pale">10 · FUENTES</p>
+            <h2>Trazabilidad y pendientes</h2>
+          </div>
+          <p>Consulta realizada el 3 de agosto de 2026. Los enlaces de mercado son fotografías temporales; las normas y trámites deben reconfirmarse.</p>
+        </div>
+
+        <div class="source-columns">
+          <div>
+            <h3>Regulación y registros</h3>
+            <a href="https://www.integracionsocial.gov.co/index.php/registro-de-activos-de-informacion/40-entidad/servicios-sociales-sirss/877-servicios-sociales-sirss" target="_blank" rel="noreferrer">SDIS · inscripción SIRSS</a>
+            <a href="https://www.integracionsocial.gov.co/index.php/noticias/93-noticias-infancia-y-adolescencia/3332-abece-de-como-crear-un-jardin-infantil-en-bogota" target="_blank" rel="noreferrer">SDIS · cómo crear un jardín infantil</a>
+            <a href="https://old.integracionsocial.gov.co/anexos/documentos/2018documentos/28022018_estandares_tecnicos.pdf" target="_blank" rel="noreferrer">SDIS · estándares técnicos 2017</a>
+            <a href="https://www.integracionsocial.gov.co/images/_docs/2024/Notificaciones/Octubre/25102024-S2024177862.pdf" target="_blank" rel="noreferrer">SDIS · vigencia de estándares tras Resolución 619/2024</a>
+            <a href="https://www.educacionbogota.edu.co/portal_institucional/gestion-educativa/licencias-de-funcionamiento" target="_blank" rel="noreferrer">SED · licencias de funcionamiento</a>
+            <a href="https://educacionbogota.edu.co/portal_institucional/tramites?field_tramite_categoria_value=5&amp;field_tramite_subcategoria_value=12" target="_blank" rel="noreferrer">SED · trámites preescolar, básica y media</a>
+          </div>
+          <div>
+            <h3>Empresa, inmueble y trabajo</h3>
+            <a href="https://www.ccb.org.co/servicios/crea-tu-empresa/constituye-tu-empresa/uso-del-suelo" target="_blank" rel="noreferrer">CCB · uso del suelo</a>
+            <a href="https://www.ccb.org.co/es/servicios/crea-tu-empresa/constituye-tu-empresa/materializa-tu-empresa/tramites-para-el-funcionamiento-de-tu-negocio" target="_blank" rel="noreferrer">CCB · seguridad humana y sanidad</a>
+            <a href="https://www.ccb.org.co/es/servicios/crea-tu-empresa/constituye-tu-empresa/constitucion-virtual-sas" target="_blank" rel="noreferrer">CCB · constitución SAS</a>
+            <a href="https://normograma.dian.gov.co/dian/compilacion/docs/resolucion_dian_0227_2025.htm" target="_blank" rel="noreferrer">DIAN · CIIU 8511 y 8512</a>
+            <a href="https://conceptosanitario.saludcapital.gov.co/" target="_blank" rel="noreferrer">Salud Bogotá · solicitud concepto sanitario</a>
+            <a href="https://www.ugpp.gov.co/wp-content/uploads/2026/02/ABC-Trabajadores-dependientes-que-devengan-salario-integral.pdf" target="_blank" rel="noreferrer">UGPP · porcentajes de seguridad social</a>
+            <a href="https://dapre.presidencia.gov.co/normativa/normativa/DECRETO%20No.%200159%20DEL%2019%20DE%20FEBRERO%20DE%202026.pdf" target="_blank" rel="noreferrer">Presidencia · salario mínimo transitorio 2026</a>
+            <a href="https://www.icbf.gov.co/especiales/registro-inhabilidades" target="_blank" rel="noreferrer">ICBF · registro de inhabilidades</a>
+          </div>
+          <div>
+            <h3>Mercado y datos</h3>
+            <a href="https://www.dane.gov.co/index.php/estadisticas-por-tema/demografia-y-poblacion/proyecciones-de-poblacion/proyecciones-de-poblacion-bogota" target="_blank" rel="noreferrer">DANE · proyecciones Bogotá 2018–2035</a>
+            <a href="https://serviciossociales.integracionsocial.gov.co/SIRSS/adminVerBLOB?f_NORM_FILE=X&amp;inputfileext=NORM_FILE_EXT&amp;p_NORM_ID=541&amp;tabla=T_NORMATIVIDAD" target="_blank" rel="noreferrer">SIRSS · directorio de instituciones, corte enero 2026</a>
+            <a href="https://www.integracionsocial.gov.co/index.php/noticias/170-territorio/7708-abiertas-las-inscripciones-para-jardines-infantiles-en-2026" target="_blank" rel="noreferrer">SDIS · oferta pública y cupos 2026</a>
+            <a href="https://jardininfantilstanford.edu.co/admisiones/" target="_blank" rel="noreferrer">Jardín Stanford · tarifas 2026</a>
+            <a href="https://www.colegiosantaana.edu.co/wp-content/uploads/2025/11/CIRCULAR-064-COSTOS-EDUCATIVOS-DEFINITIVOS-2026-RES-09-028-DEL-12-DE-NOVIEMBRE-DE-2025.pdf" target="_blank" rel="noreferrer">Colegio Santa Ana · tarifas 2026</a>
+            <a href="https://insmariamontessori.edu.co/circular/costos2026.pdf" target="_blank" rel="noreferrer">Instituto María Montessori · tarifas 2026</a>
+            <a href="https://ccsj.edu.co/wp-content/uploads/2025/11/CircularIPropuestaCostosyTarifas2026.pdf" target="_blank" rel="noreferrer">Campestre San José · tarifas 2026</a>
+            <a href="https://www.fincaraiz.com.co/arriendo/casas/colina-campestre/zona-norte/bogota" target="_blank" rel="noreferrer">Fincaraíz · promedio casas Colina</a>
+            <a href="https://www.nestoria.com.co/villa-luz/casas/arriendo" target="_blank" rel="noreferrer">Nestoria · comparable comercial Villa Luz/Quiriguá</a>
+          </div>
+        </div>
+
+        <div class="pending-box top-gap">
+          <h3>Falta confirmar antes de convertir este estudio en inversión</h3>
+          <p>Barrio exacto · edades definitivas · experiencia y disponibilidad de socios · capital real · inmueble candidato · cinco cotizaciones de arriendo y obra · tarifas de 10 competidores dentro de 2 km · procedimiento SDIS vigente después del proyecto regulatorio de julio de 2026 · tratamiento tributario · pólizas · perfiles exigidos por la modalidad.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div><strong>Jardín de barrio · Bogotá</strong><p>Una base para decidir con evidencia, no una autorización para operar.</p></div>
+      <div class="footer-actions"><a href="#inicio">Volver arriba</a><button class="quiet-button" type="button" data-print>Guardar como PDF</button></div>
+    </footer>
+
+    <script>
+const formatMillions = (value) => {
+  const sign = value < 0 ? "−" : "";
+  return `${sign}${Math.abs(value).toLocaleString("es-CO", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  })} M`;
+};
+
+const baseEnrollment = [12, 15, 18, 20, 22, 24, 25, 26, 27, 27, 28, 28, 25, 26, 27, 28, 28, 29, 29, 29, 30, 30, 30, 30];
+const nonRentFixedBase = 26.7;
+
+const controls = {
+  capacity: document.querySelector("#capacity"),
+  children: document.querySelector("#children"),
+  price: document.querySelector("#price"),
+  variable: document.querySelector("#variable"),
+  fixed: document.querySelector("#fixed"),
+};
+
+const values = {
+  capacity: document.querySelector("#capacityValue"),
+  children: document.querySelector("#childrenValue"),
+  price: document.querySelector("#priceValue"),
+  variable: document.querySelector("#variableValue"),
+  fixed: document.querySelector("#fixedValue"),
+};
+
+const results = {
+  breakEven: document.querySelector("#breakEvenResult"),
+  breakEvenPercent: document.querySelector("#breakEvenPercent"),
+  revenue: document.querySelector("#revenueResult"),
+  ebitda: document.querySelector("#ebitdaResult"),
+  ebitdaState: document.querySelector("#ebitdaState"),
+  rent: document.querySelector("#rentResult"),
+};
+
+const getModel = () => ({
+  capacity: Number(controls.capacity.value),
+  children: Number(controls.children.value),
+  price: Number(controls.price.value),
+  variable: Number(controls.variable.value),
+  fixed: Number(controls.fixed.value),
+});
+
+const buildProjection = (model) => {
+  let cumulative = 0;
+  return baseEnrollment.map((planned, index) => {
+    const children = Math.min(planned, model.capacity);
+    const revenue = children * model.price;
+    const variableCosts = children * model.variable;
+    const ebitda = revenue - variableCosts - model.fixed;
+    cumulative += ebitda;
+    return {
+      month: index + 1,
+      children,
+      occupancy: children / model.capacity,
+      revenue,
+      variableCosts,
+      fixed: model.fixed,
+      ebitda,
+      cumulative,
+    };
+  });
+};
+
+const renderProjection = (model, breakEven) => {
+  const body = document.querySelector("#projectionBody");
+  const chart = document.querySelector("#occupancyChart");
+  const projection = buildProjection(model);
+
+  body.innerHTML = projection.map((row) => `
+    <tr>
+      <td>${row.month}</td>
+      <td><strong>${row.children}</strong></td>
+      <td>${Math.round(row.occupancy * 100)}%</td>
+      <td>${formatMillions(row.revenue)}</td>
+      <td>${formatMillions(row.variableCosts)}</td>
+      <td>${formatMillions(row.fixed)}</td>
+      <td class="${row.ebitda >= 0 ? "positive" : "negative-text"}">${formatMillions(row.ebitda)}</td>
+      <td class="${row.cumulative >= 0 ? "positive" : "negative-text"}">${formatMillions(row.cumulative)}</td>
+    </tr>
+  `).join("");
+
+  chart.innerHTML = projection.map((row) => {
+    const height = Math.max(4, row.occupancy * 100);
+    return `<div class="chart-bar ${row.children >= breakEven ? "break-even" : ""}" style="height:${height}%" data-month="${row.month}" data-label="Mes ${row.month}: ${row.children} niños"></div>`;
+  }).join("");
+
+  return projection;
+};
+
+let currentProjection = [];
+
+const updateCalculator = () => {
+  const model = getModel();
+  controls.children.max = String(model.capacity);
+  if (model.children > model.capacity) {
+    controls.children.value = String(model.capacity);
+    model.children = model.capacity;
+  }
+
+  const contribution = model.price - model.variable;
+  const breakEven = contribution > 0 ? Math.ceil(model.fixed / contribution) : Infinity;
+  const occupancy = Number.isFinite(breakEven) ? breakEven / model.capacity : Infinity;
+  const revenue = model.children * model.price;
+  const ebitda = model.children * contribution - model.fixed;
+  const maxRent = Math.max(0, model.children * contribution - nonRentFixedBase);
+
+  values.capacity.textContent = model.capacity;
+  values.children.textContent = model.children;
+  values.price.textContent = formatMillions(model.price);
+  values.variable.textContent = formatMillions(model.variable);
+  values.fixed.textContent = formatMillions(model.fixed);
+
+  results.breakEven.textContent = Number.isFinite(breakEven) ? `${breakEven} niños` : "No calculable";
+  results.breakEvenPercent.textContent = Number.isFinite(occupancy)
+    ? `${Math.round(occupancy * 100)}% de ocupación${occupancy > 1 ? " · imposible" : ""}`
+    : "El precio no cubre el variable";
+  results.revenue.textContent = formatMillions(revenue);
+  results.ebitda.textContent = formatMillions(ebitda);
+  results.ebitda.classList.toggle("negative", ebitda < 0);
+  results.ebitdaState.textContent = ebitda < 0
+    ? "El mes consume caja"
+    : ebitda < 2
+      ? "Mes apenas positivo"
+      : "Mes con margen operativo";
+  results.rent.textContent = formatMillions(maxRent);
+
+  currentProjection = renderProjection(model, breakEven);
+};
+
+Object.values(controls).forEach((control) => control?.addEventListener("input", updateCalculator));
+updateCalculator();
+
+document.querySelector("#downloadCsv")?.addEventListener("click", () => {
+  const headers = ["mes", "ninos", "ocupacion_pct", "ingresos_millones", "variables_millones", "fijos_millones", "ebitda_millones", "acumulado_millones"];
+  const rows = currentProjection.map((row) => [
+    row.month,
+    row.children,
+    Math.round(row.occupancy * 100),
+    row.revenue.toFixed(2),
+    row.variableCosts.toFixed(2),
+    row.fixed.toFixed(2),
+    row.ebitda.toFixed(2),
+    row.cumulative.toFixed(2),
+  ]);
+  const csv = [headers, ...rows].map((row) => row.join(",")).join("\n");
+  const url = URL.createObjectURL(new Blob([csv], { type: "text/csv;charset=utf-8" }));
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = "proyeccion-jardin-24-meses.csv";
+  link.click();
+  URL.revokeObjectURL(url);
+});
+
+document.querySelectorAll("[data-print]").forEach((button) => {
+  button.addEventListener("click", () => window.print());
+});
+
+const menuButton = document.querySelector("#menuButton");
+const mainNav = document.querySelector("#mainNav");
+menuButton?.addEventListener("click", () => {
+  const open = mainNav.classList.toggle("open");
+  menuButton.setAttribute("aria-expanded", String(open));
+});
+mainNav?.querySelectorAll("a").forEach((link) => link.addEventListener("click", () => {
+  mainNav.classList.remove("open");
+  menuButton?.setAttribute("aria-expanded", "false");
+}));
+
+const navLinks = [...document.querySelectorAll(".main-nav a")];
+const observedSections = navLinks
+  .map((link) => document.querySelector(link.getAttribute("href")))
+  .filter(Boolean);
+
+if ("IntersectionObserver" in window) {
+  const observer = new IntersectionObserver((entries) => {
+    const visible = entries
+      .filter((entry) => entry.isIntersecting)
+      .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+    if (!visible) return;
+    navLinks.forEach((link) => {
+      const active = link.getAttribute("href") === `#${visible.target.id}`;
+      link.classList.toggle("active", active);
+      if (active) link.setAttribute("aria-current", "location");
+      else link.removeAttribute("aria-current");
+    });
+  }, { rootMargin: "-25% 0px -60%", threshold: [0.05, 0.2, 0.5] });
+  observedSections.forEach((section) => observer.observe(section));
+}
+
+</script>
+  </body>
+</html>
